@@ -1,0 +1,31 @@
+<div class="container" style="background-color:teal;" >
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="jumbotron" style="font-weight: bolder; padding:45px 0px; color:black;background-color: whitesmoke; " >
+            <h2 class="text-center"  style="font-weight: bolder;">To Do List App</h2>
+          </div>
+          
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Enter your task"  #taskTitle>
+            <div class="input-group-addon hover-cursor" (click)="onAdd(taskTitle)">
+              <i class="fa fa-plus fa-2x" ></i>
+            </div>
+          </div>
+        
+          <div style="margin:5px 0px">
+            <ul class="list-group">
+              <li class="list-group-item" *ngFor="let item of TODOListContents">
+                <span class="hover-cursor" [class.text-success]="item.Completed" (click)="ChangeCheck(item.$key,item.Completed)" >
+                  <i class="fa fa-lg" [ngClass]="item.Completed?'fa-check-circle-o':'fa-circle-thin'"></i>
+                </span>
+                {{item.Task}}
+                <span class="hover-cursor text-danger pull-right" (click)="onDelete(item.$key)">
+                  <i class="fa fa-trash-o fa-lg"></i>
+                </span>
+              </li>
+            </ul>
+          </div>
+        
+    </div>
+  </div>
+  </div>
